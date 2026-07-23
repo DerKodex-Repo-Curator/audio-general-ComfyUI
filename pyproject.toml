@@ -11,4 +11,4 @@ Repository = "https://github.com/niknah/audio-general-ComfyUI"
 [tool.comfy]
 PublisherId = "niknah"
 DisplayName = "Audio General"
-Icon = ""
+Icon = "https://raw.githubusercontent.com/niknah/audio-general-ComfyUI/refs/heads/main/imgs/AudioGeneral_Icon.webp"
