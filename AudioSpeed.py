@@ -1,6 +1,17 @@
 import hashlib
 import torch
 import math
+import io
+import torchaudio
+
+class NoCloseBytesIO(io.BytesIO):
+    def real_close(self):
+        # Call this if you genuinely want to close it later
+        super().close()
+
+    def close(self):
+        # Prevent the underlying BytesIO from closing
+        pass
 
 
 class AudioSpeed:
@@ -31,26 +42,49 @@ class AudioSpeed:
 
     FUNCTION = "time_shift"
 
+
     def time_shift_audiostretchy(self, audio, speed):
         from audiostretchy.stretch import AudioStretch
-
+        from torchcodec.encoders import AudioEncoder
         rate = audio['sample_rate']
         waveform = audio['waveform']
-
+        audio_stretch = AudioStretch()
         new_waveforms = []
         for channel in range(0, waveform.shape[0]):
-            ta_audio16 = waveform[0][channel] * 32768
+            wav_buffer = io.BytesIO()
+            encoder = AudioEncoder(waveform[0][channel], sample_rate=rate)
+            encoder.to_file_like(wav_buffer, format="wav")
+            nbytes = wav_buffer.getbuffer().nbytes
+            wav_buffer.seek(0)  # rewind so it can be read from the start
+            audio_stretch.open(file=wav_buffer, format="wav")
+                                                                                                                                                                                # audiostretchy crashes in windows beyond these ranges even with double_range=True
+            if speed == 0.5:
+                speed = 0.5000001 # seg faults at 0.5 or 1
 
-            audio_stretch = AudioStretch()
-            audio_stretch.samples = audio_stretch.in_samples = \
-                ta_audio16.numpy().astype('int16')
-            audio_stretch.nchannels = 1
-            audio_stretch.sampwidth = 2
-            audio_stretch.framerate = rate
-            audio_stretch.nframes = waveform.shape[2]
-            audio_stretch.stretch(ratio=speed)
+            double_range = False if(speed>0.5 and speed < 4) else True
 
-            new_waveforms.append(torch.from_numpy(audio_stretch.samples))
+            audio_stretch.stretch(
+                ratio=speed,
+                gap_ratio=1.2,
+                upper_freq=333,
+                lower_freq=55,
+                buffer_ms=25,                                                                                                                                                       threshold_gap_db=-40,
+                double_range=double_range,
+                fast_detection=False,
+                normal_detection=False,
+            )
+            # out_buffer = NoCloseBytesIO(b"\x00" * math.ceil(nbytes * speed))
+            out_buffer = NoCloseBytesIO()
+
+            out_buffer.seek(0)
+            audio_stretch.save(file=out_buffer, format="wav")
+            out_buffer.seek(0)  # rewind so it can be read from the start
+
+            waveform, sample_rate = torchaudio.load(out_buffer)
+            out_buffer.real_close()
+
+            new_waveforms.append(waveform[0])
+
         new_waveform = torch.stack(new_waveforms)
         new_waveform = torch.stack([new_waveform])
 
@@ -73,17 +107,27 @@ class AudioSpeed:
         self,
         audio,
         speed,
-        speed_type="torch-time-shift",
+        speed_type="torch-time-stretch",
     ):
         new_audios = []
+
         if not isinstance(speed, list):
             speed = [speed] * len(audio)
+        if all(x == 1 for x in speed):
+            return (audio[0], )
+
         i = 0
+
+        if isinstance(speed_type, list) and len(speed_type)==1:
+            speed_type = speed_type[0]  # need this because we are using INPUT_IS_LIST
+
         for a in audio:
-            if speed_type == "torch-time-shift":
+            if speed_type == "torch-time-stretch" or speed_type is None:
                 new_audio = self.time_shift_torch_ts(a, speed[i])
-            else:
+            elif speed_type == "TDHS":
                 new_audio = self.time_shift_audiostretchy(a, speed[i])
+            else:
+                raise ValueError(f"AudioSpeed: Unknown speed_type: {speed_type}")
             i += 1
 
             new_audios.append(new_audio)

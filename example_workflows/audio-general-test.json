@@ -1,8 +1,8 @@
 {
   "id": "b9006f30-6c9b-41d3-a394-d5519729899b",
   "revision": 0,
-  "last_node_id": 77,
-  "last_link_id": 95,
+  "last_node_id": 81,
+  "last_link_id": 99,
   "nodes": [
     {
       "id": 63,
@@ -13,7 +13,7 @@
       ],
       "size": [
         315,
-        130
+        170
       ],
       "flags": {},
       "order": 4,
@@ -53,7 +53,7 @@
       ],
       "size": [
         315,
-        130
+        170
       ],
       "flags": {},
       "order": 5,
@@ -93,7 +93,7 @@
       ],
       "size": [
         315,
-        102
+        134
       ],
       "flags": {},
       "order": 11,
@@ -137,7 +137,7 @@
       ],
       "size": [
         315,
-        102
+        134
       ],
       "flags": {},
       "order": 10,
@@ -162,7 +162,7 @@
           "name": "decibel",
           "type": "FLOAT",
           "links": [
-            89
+            96
           ]
         }
       ],
@@ -183,7 +183,7 @@
       ],
       "size": [
         315,
-        58
+        86
       ],
       "flags": {},
       "order": 6,
@@ -214,102 +214,6 @@
       ]
     },
     {
-      "id": 28,
-      "type": "Display Any (rgthree)",
-      "pos": [
-        1481.609130859375,
-        -2297.47509765625
-      ],
-      "size": [
-        264.5999755859375,
-        88
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "source",
-          "type": "*",
-          "link": 11
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "32142fe476878a354dda6e2d4b5ea98960de3ced",
-        "Node name for S&R": "Display Any (rgthree)"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 29,
-      "type": "Display Any (rgthree)",
-      "pos": [
-        1522.3631591796875,
-        -2148.372802734375
-      ],
-      "size": [
-        264.5999755859375,
-        88
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "source",
-          "type": "*",
-          "link": 12
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "32142fe476878a354dda6e2d4b5ea98960de3ced",
-        "Node name for S&R": "Display Any (rgthree)"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 30,
-      "type": "Display Any (rgthree)",
-      "pos": [
-        1536.031005859375,
-        -2010.1063232421875
-      ],
-      "size": [
-        264.5999755859375,
-        88
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "dir": 3,
-          "name": "source",
-          "type": "*",
-          "link": 13
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "32142fe476878a354dda6e2d4b5ea98960de3ced",
-        "Node name for S&R": "Display Any (rgthree)"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
       "id": 7,
       "type": "AudioInfo",
       "pos": [
@@ -317,8 +221,8 @@
         -2244.853759765625
       ],
       "size": [
-        262.1057434082031,
-        105.00494384765625
+        262.0625,
+        105
       ],
       "flags": {},
       "order": 23,
@@ -336,7 +240,7 @@
           "type": "FLOAT",
           "slot_index": 0,
           "links": [
-            11
+            97
           ]
         },
         {
@@ -344,7 +248,7 @@
           "type": "int",
           "slot_index": 1,
           "links": [
-            12
+            98
           ]
         },
         {
@@ -352,7 +256,7 @@
           "type": "BOOLEAN",
           "slot_index": 2,
           "links": [
-            13
+            99
           ]
         }
       ],
@@ -369,8 +273,8 @@
         -926.0911254882812
       ],
       "size": [
-        342.5999755859375,
-        136
+        342.5625,
+        162
       ],
       "flags": {},
       "order": 0,
@@ -386,9 +290,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LoadAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.30",
-        "Node name for S&R": "LoadAudio"
+        "ver": "0.3.30"
       },
       "widgets_values": [
         "simple-bass-88983.mp3",
@@ -405,7 +309,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 12,
@@ -417,11 +321,17 @@
           "link": 84
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.30",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.30"
       },
       "widgets_values": []
     },
@@ -433,8 +343,8 @@
         -656.0914306640625
       ],
       "size": [
-        342.5999755859375,
-        136
+        342.5625,
+        162
       ],
       "flags": {},
       "order": 1,
@@ -450,9 +360,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LoadAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.30",
-        "Node name for S&R": "LoadAudio"
+        "ver": "0.3.30"
       },
       "widgets_values": [
         "ShortGuitar.wav",
@@ -469,7 +379,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 13,
@@ -481,11 +391,17 @@
           "link": 85
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.30",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.30"
       },
       "widgets_values": []
     },
@@ -498,7 +414,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 14,
@@ -510,11 +426,17 @@
           "link": 18
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.26"
       },
       "widgets_values": []
     },
@@ -527,7 +449,7 @@
       ],
       "size": [
         315,
-        154
+        198
       ],
       "flags": {},
       "order": 7,
@@ -569,7 +491,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 16,
@@ -581,11 +503,17 @@
           "link": 20
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.26"
       },
       "widgets_values": []
     },
@@ -593,12 +521,12 @@
       "id": 68,
       "type": "PreviewAudio",
       "pos": [
-        680,
-        -2630
+        673.244536437472,
+        -2570.982282589407
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 21,
@@ -610,45 +538,19 @@
           "link": 86
         }
       ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "PreviewAudio"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 70,
-      "type": "Display Any (rgthree)",
-      "pos": [
-        722.1991577148438,
-        -2774.58203125
-      ],
-      "size": [
-        264.5999755859375,
-        88
-      ],
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [
+      "outputs": [
         {
-          "dir": 3,
-          "name": "source",
-          "type": "*",
-          "link": 89
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
         }
       ],
-      "outputs": [],
       "properties": {
-        "cnr_id": "rgthree-comfy",
-        "ver": "32142fe476878a354dda6e2d4b5ea98960de3ced",
-        "Node name for S&R": "Display Any (rgthree)"
+        "Node name for S&R": "PreviewAudio",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
       },
-      "widgets_values": [
-        ""
-      ]
+      "widgets_values": []
     },
     {
       "id": 27,
@@ -659,7 +561,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 19,
@@ -671,11 +573,17 @@
           "link": 15
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.26"
       },
       "widgets_values": []
     },
@@ -688,7 +596,7 @@
       ],
       "size": [
         315,
-        310
+        370
       ],
       "flags": {},
       "order": 15,
@@ -750,7 +658,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 22,
@@ -762,11 +670,17 @@
           "link": 78
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.26"
       },
       "widgets_values": []
     },
@@ -779,7 +693,7 @@
       ],
       "size": [
         315,
-        136
+        162
       ],
       "flags": {},
       "order": 2,
@@ -800,9 +714,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LoadAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "LoadAudio"
+        "ver": "0.3.26"
       },
       "widgets_values": [
         "F5TTS_test_en_1_ref_short.wav",
@@ -819,7 +733,7 @@
       ],
       "size": [
         315,
-        136
+        162
       ],
       "flags": {},
       "order": 3,
@@ -838,9 +752,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LoadAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.26",
-        "Node name for S&R": "LoadAudio"
+        "ver": "0.3.26"
       },
       "widgets_values": [
         "SilenceTest.mp3",
@@ -857,7 +771,7 @@
       ],
       "size": [
         315,
-        82
+        114
       ],
       "flags": {},
       "order": 8,
@@ -882,7 +796,7 @@
         "Node name for S&R": "AudioSpeed"
       },
       "widgets_values": [
-        1.5,
+        1,
         "torch-time-stretch"
       ]
     },
@@ -895,7 +809,7 @@
       ],
       "size": [
         315,
-        82
+        114
       ],
       "flags": {},
       "order": 9,
@@ -933,7 +847,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 18,
@@ -945,11 +859,17 @@
           "link": 92
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.30",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.30"
       },
       "widgets_values": []
     },
@@ -962,7 +882,7 @@
       ],
       "size": [
         315,
-        88
+        126
       ],
       "flags": {},
       "order": 17,
@@ -974,11 +894,149 @@
           "link": 91
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "PreviewAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.3.30",
-        "Node name for S&R": "PreviewAudio"
+        "ver": "0.3.30"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 78,
+      "type": "PreviewAny",
+      "pos": [
+        814.1162119070659,
+        -2787.7574575655963
+      ],
+      "size": [
+        225,
+        162
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 96
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 79,
+      "type": "PreviewAny",
+      "pos": [
+        1602.0561616687821,
+        -2500.3892176475247
+      ],
+      "size": [
+        225,
+        162
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 97
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 80,
+      "type": "PreviewAny",
+      "pos": [
+        1546.0946129977833,
+        -2263.2673812125454
+      ],
+      "size": [
+        225,
+        162
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 98
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 81,
+      "type": "PreviewAny",
+      "pos": [
+        1543.7983202597557,
+        -2014.830324439094
+      ],
+      "size": [
+        225,
+        162
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
       },
       "widgets_values": []
     }
@@ -999,30 +1057,6 @@
       26,
       0,
       "AUDIO"
-    ],
-    [
-      11,
-      7,
-      0,
-      28,
-      0,
-      "*"
-    ],
-    [
-      12,
-      7,
-      1,
-      29,
-      0,
-      "*"
-    ],
-    [
-      13,
-      7,
-      2,
-      30,
-      0,
-      "*"
     ],
     [
       14,
@@ -1145,14 +1179,6 @@
       "AUDIO"
     ],
     [
-      89,
-      10,
-      1,
-      70,
-      0,
-      "*"
-    ],
-    [
       91,
       73,
       0,
@@ -1183,6 +1209,38 @@
       75,
       0,
       "AUDIO"
+    ],
+    [
+      96,
+      10,
+      1,
+      78,
+      0,
+      "FLOAT"
+    ],
+    [
+      97,
+      7,
+      0,
+      79,
+      0,
+      "FLOAT"
+    ],
+    [
+      98,
+      7,
+      1,
+      80,
+      0,
+      "int"
+    ],
+    [
+      99,
+      7,
+      2,
+      81,
+      0,
+      "BOOLEAN"
     ]
   ],
   "groups": [
@@ -1196,7 +1254,6 @@
         656.7373046875
       ],
       "color": "#3f789e",
-      "font_size": 22,
       "flags": {}
     },
     {
@@ -1209,7 +1266,6 @@
         646.3322143554688
       ],
       "color": "#3f789e",
-      "font_size": 22,
       "flags": {}
     },
     {
@@ -1222,7 +1278,6 @@
         481.3377990722656
       ],
       "color": "#3f789e",
-      "font_size": 22,
       "flags": {}
     },
     {
@@ -1235,7 +1290,6 @@
         494.7157287597656
       ],
       "color": "#3f789e",
-      "font_size": 22,
       "flags": {}
     },
     {
@@ -1248,7 +1302,6 @@
         497.6885986328125
       ],
       "color": "#3f789e",
-      "font_size": 22,
       "flags": {}
     },
     {
@@ -1261,20 +1314,19 @@
         500
       ],
       "color": "#3f789e",
-      "font_size": 22,
       "flags": {}
     }
   ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6727499949326102,
+      "scale": 0.9090909090909097,
       "offset": [
-        839.8988144612431,
-        1217.5680435435918
+        -774.3575671186296,
+        1762.0585075083372
       ]
     },
-    "frontendVersion": "1.17.11",
+    "frontendVersion": "1.48.7",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
